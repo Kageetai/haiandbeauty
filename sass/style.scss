@@ -1,0 +1,345 @@
+// @import url("normalize.css");
+@import "compass";
+@import "compass/reset";
+@import "susy";
+
+//@include font-face("Chopin Script", font-files("./theme/HaiandBeauty/fonts/ChopinScript.otf",
+//                                               "./theme/HaiandBeauty/fonts/ChopinScript.ttf",
+//                                               "./theme/HaiandBeauty/fonts/ChopinScript.svg",
+//                                               "./theme/HaiandBeauty/fonts/ChopinScript.eot"));
+@font-face {
+  font-family:"ChopinScript";
+  src:url("fonts/ChopinScript.eot?") format("eot"),
+      url("fonts/ChopinScript.woff") format("woff"),
+      url("fonts/ChopinScript.ttf") format("truetype"),
+      url("fonts/ChopinScript.svg#ChopinScript") format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+
+/** SUSY VARIABLES **/
+$total-columns: 3;
+$break: 9;
+$column-width: 4em;
+$gutter-width: 3em;
+$grid-padding: $gutter-width;
+
+/** COLORS **/
+$backcolor: white;
+$frontcolor: black;
+$leftwidth: 600px;
+
+.clear {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: $frontcolor;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background-color: $backcolor;
+  color: $frontcolor;
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.2em;
+}
+
+#wrapper {
+  @include container;
+  @include at-breakpoint($break) {
+    @include set-container-width;
+  }
+  margin: 0 auto;
+}
+
+header .logo {
+  @include span-columns($total-columns omega);
+  display: block;
+  width: 288px;
+  height: 68px;
+  margin: 0;
+  background: url("../img/hb_logo_s.png") no-repeat center;
+
+  @include at-breakpoint($break) {
+    @include span-columns(7 omega);
+    @include prefix(1);
+    @include suffix(1);
+    background: url("../img/hb_logo.png") no-repeat center;
+    margin: 25px auto 15px;
+    height: 177px;
+  }
+}
+
+header .banner {
+  @include span-columns($total-columns);
+  @include at-breakpoint($break) {
+    @include span-columns($break/3, $break);
+
+    .haare:hover,
+    .naegel:hover,
+    .kosmetik:hover {
+      @include box-shadow(0px);
+      @include translateY(0px);
+    }
+  }
+
+  &:last-child {
+    @include omega;
+  }
+
+  .haare,
+  .naegel,
+  .kosmetik {
+    display: block;
+    height: 60px;
+    width: 280px;
+    text-decoration: none;
+    @include transition(all 0.5s);
+
+    &:hover {
+      @include box-shadow(0px 5px 7px #888);
+      @include translateY(-3px);
+      @include transition(all 0.5s);
+    }
+  }
+
+  .haare {
+    background-image: url("../img/haare/haare_banner_s.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include at-breakpoint($break) {
+      background-image: url("../img/haare/haare_banner.png");
+      height: 140px;
+    }
+  }
+
+  .naegel {
+    background-image: url("../img/naegel/naegel_banner_s.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include at-breakpoint($break) {
+      background-image: url("../img/naegel/naegel_banner.png");
+      height: 140px;
+    }
+  }
+
+  .kosmetik {
+    background-image: url("../img/kosmetik/kosmetik_banner_s.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include at-breakpoint($break) {
+      background-image: url("../img/kosmetik/kosmetik_banner.png");
+      height: 140px;
+    }
+  }
+}
+
+#nav {
+  display: none;
+  clear: both;
+  @include at-breakpoint($break) {
+    display: block;
+  }
+  border-bottom: 1px solid $frontcolor;
+
+  li {
+    @include inline-block;
+    margin-top: 20px;
+    padding: 5px 15px;
+    list-style: none;
+    text-transform: uppercase;
+    @include transition(all 0.3s);
+
+    &.active,
+    &:hover,
+    &:focus {
+      color: $backcolor;
+      background-color: $frontcolor;
+      @include transition(all 0.3s);
+      a {
+        color: $backcolor;
+        @include transition(all 0.3s);
+      }
+    }
+
+    a {
+      margin: 5px;
+      text-decoration: none;
+      color: $frontcolor;
+      @include transition(all 0.3s);
+    }
+
+    &.impressum {
+      float: right;
+      font-size: 0.7em;
+      padding: 6px 10px;
+      margin-top: 28px;
+      line-height: 9px;
+    }
+  }
+}
+
+#content {
+  font-size: 0.7em;
+
+  .content-block {
+    @include span-columns($total-columns);
+    @include at-breakpoint($break) {
+      @include span-columns($break/3, $break);
+      border-bottom: 0px;
+      //padding-top: $grid-padding;
+    }
+    border-bottom: 1px solid lightgray;
+    padding-top: $grid-padding;
+    padding-bottom: 5px;
+    //padding-top: 0;
+
+    h3 {
+      font-family: "ChopinScript";
+      font-size: 3.5em;
+      // text-rendering: optimizeLegibility;
+      margin-bottom: 30px;
+
+      & > img[alt="herren"] {
+        margin-bottom: -20px;
+      }
+      & > img[alt="nagelmodellage"] {
+        margin-bottom: -12px;
+      }
+      & > img[alt="dermazeutisch"] {
+        margin-bottom: -15px;
+      }
+    }
+
+    li > span {
+      float: right;
+    }
+
+    &:nth-child(3n),
+    &.products {
+      @include omega;
+    }
+
+    &.products {
+      @include at-breakpoint($break) {
+        margin-top: 75px;
+      }
+
+      img {
+        margin-right: 10px;
+      }
+    }
+
+    &.swiper-container {
+      width: 100%;
+      height: 150px;
+      padding: 5px 0px;
+
+      .swiper-slide {
+        width: 155px;
+        float: left;
+
+        img {
+          height: 150px;
+        }
+      }
+
+      @include at-breakpoint($break) {
+        @include span-columns($break);
+        // @include omega;
+
+        height: auto;
+
+        .swiper-slide {
+          @include span-columns($break/3, $break);
+          padding: $grid-padding 0px;
+
+          &:nth-child(3n) {
+            @include omega;
+          }
+
+          img {
+            height: 280px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-meta {
+  color: darkgray;
+  font-size: 0.8em;
+  span {
+    font-style: italic;
+  }
+}
+
+.adress {
+  @include span-columns($total-columns omega);
+  font-size: 0.55em;
+  text-align: center;
+  line-height: 1.9em;
+
+  #index .content-block > & {
+    display: none;
+  }
+
+  @include at-breakpoint($break) {
+    @include span-columns($break);
+    display: none;
+
+    #index .content-block > & {
+      display: inline-block;
+      font-size: 1em;
+      text-align: left;
+      //padding: 10px;
+    }
+  }
+}
+
+.contact {
+  @include span-columns($total-columns omega);
+  clear: both;
+  background-color: lightgray;
+  padding-top: 5px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.6em;
+  line-height: 1.5em;
+
+  @include at-breakpoint($break) {
+    display: none;
+  }
+
+  .impressum-link {
+    display: block;
+    padding: 3px 0px 3px 5px;
+    margin-top: 5px;
+    // background-color: #e3e3e3;
+    background-color: adjust-lightness(lightgray, 5);
+    text-align: left;
+    text-transform: uppercase;
+    @include transition(all 0.3s);
+
+    &:hover {
+      background-color: adjust-lightness(lightgray, -5);
+      // color: white;
+      @include transition(all 0.3s);
+    }
+  }
+
+}
