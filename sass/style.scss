@@ -7,15 +7,15 @@
 //                                               "./theme/HaiandBeauty/fonts/ChopinScript.ttf",
 //                                               "./theme/HaiandBeauty/fonts/ChopinScript.svg",
 //                                               "./theme/HaiandBeauty/fonts/ChopinScript.eot"));
-@font-face {
-  font-family:"ChopinScript";
-  src:url("fonts/ChopinScript.eot?") format("eot"),
-      url("fonts/ChopinScript.woff") format("woff"),
-      url("fonts/ChopinScript.ttf") format("truetype"),
-      url("fonts/ChopinScript.svg#ChopinScript") format("svg");
-  font-weight:normal;
-  font-style:normal;
-}
+//@font-face {
+//  font-family:"ChopinScript";
+//  src:url("fonts/ChopinScript.eot?") format("eot"),
+//      url("fonts/ChopinScript.woff") format("woff"),
+//      url("fonts/ChopinScript.ttf") format("truetype"),
+//      url("fonts/ChopinScript.svg#ChopinScript") format("svg");
+//  font-weight:normal;
+//  font-style:normal;
+//}
 
 /** SUSY VARIABLES **/
 $total-columns: 3;
@@ -104,12 +104,12 @@ header .banner {
     height: 60px;
     width: 280px;
     text-decoration: none;
-    @include transition(all 0.5s);
+    @include transition(box-shadow 0.5s);
 
     &:hover {
-      @include box-shadow(0px 5px 7px #888);
-      @include translateY(-3px);
-      @include transition(all 0.5s);
+      @include box-shadow(0px 1px 3px #888);
+      @include transition(box-shadow 0.5s);
+      // @include translateY(-3px);
     }
   }
 
@@ -208,8 +208,8 @@ header .banner {
     //padding-top: 0;
 
     h3 {
-      font-family: "ChopinScript";
-      font-size: 3.5em;
+      // font-family: "ChopinScript";
+      // font-size: 3.5em;
       // text-rendering: optimizeLegibility;
       margin-bottom: 30px;
 
