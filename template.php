@@ -92,6 +92,8 @@ if (!defined('IN_GS')) {
 //            console.log("Slider reinit");
 //            mySwiper.reInit();
 //        });
+
+
     })
 
 </script>

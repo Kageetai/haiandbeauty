@@ -40,6 +40,10 @@ $leftwidth: 600px;
 a {
   text-decoration: none;
   color: $frontcolor;
+
+  &:hover {
+    color: adjust-lightness($frontcolor, 50);
+  }
 }
 
 img {
@@ -314,7 +318,7 @@ header .banner {
 }
 
 .contact {
-  @include span-columns($total-columns omega);
+  // @include span-columns($total-columns omega);
   clear: both;
   background-color: lightgray;
   padding-top: 5px;
