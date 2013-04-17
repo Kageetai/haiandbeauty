@@ -20,8 +20,10 @@
 /** SUSY VARIABLES **/
 $total-columns: 3;
 $break: 9;
-$column-width: 4em;
-$gutter-width: 3em;
+//$column-width: 4em;
+$column-width: 64px;
+//$gutter-width: 3em;
+$gutter-width: 48px;
 $grid-padding: $gutter-width;
 
 /** COLORS **/
@@ -32,6 +34,7 @@ $leftwidth: 600px;
 .clear {
   clear: both;
 }
+
 
 .hidden {
   display: none;
