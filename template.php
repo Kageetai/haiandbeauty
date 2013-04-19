@@ -18,6 +18,8 @@ if (!defined('IN_GS')) {
     <?php get_header(); ?>
     <meta name="robots" content="index, follow"/>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="<?php get_theme_url(); ?>/css/style.css" media="all"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="<?php get_theme_url(); ?>/css/idangerous.swiper.css">
@@ -48,11 +50,16 @@ if (!defined('IN_GS')) {
     <div id="content" role="main">
         <div id="page-content">
             <?php
-            if (return_page_slug() == 'index') { ?>
-                <div class="content-block"><p class="adress">
-                    <?php get_component('adress'); ?>
-                </p></div>
-            <?php } else {
+            if (return_page_slug() == 'index') {
+                ?>
+                <div class="content-block productsstart">
+                    <p class=""><?php get_component('productsstart'); ?></p>
+                </div>
+                <div class="content-block">
+                    <p class="adress"><?php get_component('adress'); ?></p>
+                </div>
+            <?php
+            } else {
                 get_page_content();
             }
             ?>
@@ -74,9 +81,11 @@ if (!defined('IN_GS')) {
     //        speed: 500
     //    });
     $(function () {
-        if ($(window).width() <= 960) {
+//        if ($(window).width() <= 960) {
+        if ($('#nav').css('display') == 'none') {
             var mySwiper = $('.swiper-container').swiper({
                 freeMode: true,
+                freeModeFluid: true,
                 initialSlide: 1.1,
                 slidesPerSlide: 1.8,
                 //scrollContainer: true,
