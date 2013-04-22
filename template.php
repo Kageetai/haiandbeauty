@@ -82,25 +82,29 @@ if (!defined('IN_GS')) {
     //    });
     $(function () {
 //        if ($(window).width() <= 960) {
-        if ($('#nav').css('display') == 'none') {
-            var mySwiper = $('.swiper-container').swiper({
-                freeMode: true,
-                freeModeFluid: true,
-                initialSlide: 1.1,
-                slidesPerSlide: 1.8,
-                //scrollContainer: true,
-                grabCursor: true
-            });
-
-
-        } else {
-            $('.products').insertBefore('.swiper-container');
-        }
-
 //        $(window).resize(function() {
-//            console.log("Slider reinit");
-//            mySwiper.reInit();
+            if ($('#nav').css('display') == 'none') {
+                var mySwiper = $('.swiper-container').swiper({
+                    freeMode: true,
+                    freeModeFluid: true,
+                    initialSlide: 1.1,
+                    slidesPerSlide: 1.8,
+                    //scrollContainer: true,
+                    grabCursor: true
+                });
+            } else {
+                $('.products').insertBefore('.swiper-container');
+            }
 //        });
+
+
+        $(window).resize(function() {
+            if ($('#nav').css('display') == 'none') {
+                $('.products').insertAfter('.swiper-container');
+            } else {
+                $('.products').insertBefore('.swiper-container');
+            }
+        });
 
 
     })

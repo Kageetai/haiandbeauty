@@ -52,12 +52,17 @@ img {
   max-width: 100%;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   background-color: $backcolor;
   color: $frontcolor;
   font-family: Verdana, sans-serif;
   font-size: 16px;
   line-height: 1.2em;
+  min-height: 100%;
 }
 
 #wrapper {
@@ -91,12 +96,17 @@ header .banner {
   @include span-columns($total-columns);
   @include at-breakpoint($break) {
     @include span-columns($break/3, $break);
-    @include transition(box-shadow 0.5s);
 
-    &:hover {
-      @include box-shadow(0px 1px 3px #888);
+    a.haare,
+    a.naegel,
+    a.kosmetik {
       @include transition(box-shadow 0.5s);
-      // @include translateY(-3px);
+
+      &:hover {
+        @include box-shadow(0px 1px 3px #888);
+        @include transition(box-shadow 0.5s);
+        // @include translateY(-3px);
+      }
     }
   }
 
