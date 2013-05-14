@@ -87,7 +87,7 @@ if (!defined('IN_GS')) {
                 var mySwiper = $('.swiper-container').swiper({
                     freeMode: true,
                     freeModeFluid: true,
-                    initialSlide: 1.1,
+                    initialSlide: 0.6,
                     slidesPerSlide: 1.8,
                     //scrollContainer: true,
                     grabCursor: true

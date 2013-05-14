@@ -24,7 +24,9 @@ $column-width: 4em;
 $column-width: 64px;
 //$gutter-width: 3em;
 $gutter-width: 48px;
-$grid-padding: $gutter-width;
+//$grid-padding: $gutter-width;
+$grid-padding: 20px;
+
 
 /** COLORS **/
 $backcolor: white;
@@ -56,6 +58,10 @@ html {
   overflow-y: scroll;
 }
 
+strong {
+  font-weight: bold;
+}
+
 body {
   background-color: $backcolor;
   color: $frontcolor;
@@ -77,10 +83,11 @@ body {
 header .logo {
   @include span-columns($total-columns omega);
   display: block;
-  width: 288px;
+  //width: 288px;
   height: 68px;
   margin: 0;
   background: url("../img/hb_logo_s.png") no-repeat center;
+  background-size: contain;
 
   @include at-breakpoint($break) {
     @include span-columns(7 omega);
@@ -119,14 +126,20 @@ header .banner {
   .kosmetik {
     display: block;
     height: 60px;
-    width: 280px;
+    //width: 280px;
+    width: 100%;
     text-decoration: none;
+
+    @include at-breakpoint($break) {
+      width: 280px;
+    }
   }
 
   .haare {
     background-image: url("../img/haare/haare_banner_s.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 
     @include at-breakpoint($break) {
       background-image: url("../img/haare/haare_banner.png");
@@ -138,6 +151,7 @@ header .banner {
     background-image: url("../img/naegel/naegel_banner_s.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 
     @include at-breakpoint($break) {
       background-image: url("../img/naegel/naegel_banner.png");
@@ -149,6 +163,7 @@ header .banner {
     background-image: url("../img/kosmetik/kosmetik_banner_s.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 
     @include at-breakpoint($break) {
       background-image: url("../img/kosmetik/kosmetik_banner.png");
